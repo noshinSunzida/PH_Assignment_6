@@ -18,7 +18,7 @@ const WorkoutCards = async () => {
 
             <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-y-6">
                 {CardsData.map((cards:IWorkoutCards, ind:number) => {
-                return <Cards key={ind} cards={cards}>  </Cards>
+                return <Cards key={ind} cards={cards} />
                 })}
             </div>
 
