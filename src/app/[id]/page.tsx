@@ -2,6 +2,7 @@ import { IWorkoutCards } from '@/types/WorkoutCardsType';
 import React from 'react';
 import Image from 'next/image';
 import TodayPlanButton from '@/components/Cards/TodayPlanButton';
+import SaveLaterButton from '@/components/Cards/SaveLaterButton';
 
 interface IWorkoutDetailsProps {
     params: Promise<{
@@ -106,9 +107,7 @@ const WorkoutDetails = async ({ params }: IWorkoutDetailsProps) => {
                     {/* Buttons */}
                     <div className="flex gap-4 mt-4">
                         <TodayPlanButton card = {details}/>
-                        <button className="bg-transparent border border-gray-600 hover:bg-gray-800 text-white font-semibold py-3 px-6 rounded-xl flex items-center gap-2 transition-colors">
-                            
-                            Save for later</button>
+                        <SaveLaterButton card = {details}/>
                         
                     </div>
 

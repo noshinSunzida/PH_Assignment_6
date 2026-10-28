@@ -1,8 +1,7 @@
 import type { Metadata } from "next";
 import { Geist, Geist_Mono } from "next/font/google";
 import "./globals.css";
-import Nav from "@/components/shared/Nav";
-import CardProvider from "@/context/CardProvider";
+import ClientLayout from "@/components/Layout/ClientLayout";
 
 
 const geistSans = Geist({
@@ -29,10 +28,9 @@ export default function RootLayout({ children }: LayoutProps<"/">) {
     >
       
       <body className="min-h-full flex flex-col bg-[#0B0C0E]">
-        <CardProvider>
-             <Nav></Nav>
-            {children}
-        </CardProvider>
+        <ClientLayout>
+          {children}
+        </ClientLayout>
       </body>
        
     </html>
