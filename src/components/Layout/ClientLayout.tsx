@@ -2,13 +2,17 @@
 import React, { ReactNode } from 'react';
 import Nav from '../shared/Nav';
 import CardProvider from '@/context/CardProvider';
+import Footer from '../shared/Footer';
+import { ToastContainer } from 'react-toastify';
 
 const ClientLayout = ({children}:{children:ReactNode}) => {
     return (
         <div>
             <CardProvider>
-             <Nav></Nav>
+             <Nav/>
             {children}
+            <Footer/>
+            <ToastContainer />
             </CardProvider>
         </div>
     );

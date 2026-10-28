@@ -7,8 +7,16 @@ import React, { useContext, useState } from 'react';
 
 const MyPlanPage = () => {
 
+    const {todaysplanCards,savedCards} = useContext(CardContext)
+
     const [activeTab,setActiveTab] = useState<"Today's Plan"| "Saved">("Today's Plan");
     const [sortBy,setSortBy] = useState<"duration"| "rating" | "calories">("duration");
+
+    const currentCards = activeTab === "Today's Plan" ? todaysplanCards : savedCards;
+
+    const totalExercise = currentCards.length
+    const totalMinutes = currentCards.reduce((sum , value) => sum + value.duration,0);
+    const totalCalories = currentCards.reduce((sum , value) => sum + value.caloriesBurned,0);
 
     const sortCards = (card:IWorkoutCards[]) => {
         const sortedCards = [...card];
@@ -25,9 +33,7 @@ const MyPlanPage = () => {
 
         return sortedCards;
     }
-
-
-    const {todaysplanCards,savedCards} = useContext(CardContext)
+    
 
     const sortedTodaysPlanCards = sortCards(todaysplanCards);
     const sortedSavedCards = sortCards(savedCards);
@@ -42,19 +48,19 @@ const MyPlanPage = () => {
             <div className="stats stats-vertical lg:stats-horizontal shadow ">
                 <div className="stat text-amber-50">
                     <div className="stat-title text-amber-50">Exercises</div>
-                    <div className="stat-value">31K</div>
+                    <div className="stat-value">{totalExercise}</div>
                     
                 </div>
 
                 <div className="stat text-amber-50">
                     <div className="stat-title text-amber-50">Minutes</div>
-                    <div className="stat-value">4,200</div>
+                    <div className="stat-value">{totalMinutes}</div>
                     
                 </div>
 
                 <div className="stat text-amber-50">
                     <div className="stat-title text-amber-50">Calories</div>
-                    <div className="stat-value">1,200</div>
+                    <div className="stat-value">{totalCalories}</div>
                     
                 </div>
             </div>

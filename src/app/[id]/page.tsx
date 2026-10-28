@@ -1,8 +1,9 @@
 import { IWorkoutCards } from '@/types/WorkoutCardsType';
 import React from 'react';
 import Image from 'next/image';
-import TodayPlanButton from '@/components/Cards/TodayPlanButton';
-import SaveLaterButton from '@/components/Cards/SaveLaterButton';
+import TodayPlanButton from '@/components/Buttons/TodayPlanButton';
+import SaveLaterButton from '@/components/Buttons/SaveLaterButton';
+
 
 interface IWorkoutDetailsProps {
     params: Promise<{
