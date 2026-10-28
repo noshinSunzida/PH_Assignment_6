@@ -23,10 +23,10 @@ const WorkoutDetails = async ({ params }: IWorkoutDetailsProps) => {
     const details: IWorkoutCards = await getDetails(id);
 
     return (
-        <div className="bg-[#1e1e24] min-h-screen text-white p-8">
+        <div className="bg-[#0c0c0e] min-h-screen text-white p-8">
             <div className="max-w-6xl mx-auto flex flex-col md:flex-row gap-8 items-start">
                 
-                {/* Left Side: Image */}
+                
                 <div className="flex-1 w-full relative h-150 rounded-3xl overflow-hidden">
                     <Image 
                         src={details.image} 
@@ -36,13 +36,13 @@ const WorkoutDetails = async ({ params }: IWorkoutDetailsProps) => {
                     />
                 </div>
 
-                {/* Right Side: Content */}
+                
                 <div className="flex-1 w-full flex flex-col gap-6">
                     
-                    {/* Header */}
+                    
                     <div>
-                        <h1 className="text-4xl font-bold uppercase tracking-wider mb-2">{details.name}</h1>
-                        <p className="text-gray-400 text-sm">
+                        <h1 className="text-4xl font-bold font-oswald mb-2">{details.name}</h1>
+                        <p className="text-gray-400 text-[15px]">
                             {details.description}
                         </p>
                     </div>
@@ -57,33 +57,33 @@ const WorkoutDetails = async ({ params }: IWorkoutDetailsProps) => {
                     </div>
 
                     {/* Stats Table */}
-                    <div className="bg-[#25252b] rounded-xl overflow-hidden text-sm">
-                        <div className="flex justify-between p-4 border-b border-gray-700">
-                            <span className="text-gray-400 uppercase font-semibold">Equipment</span>
+                    <div className="bg-[#15171C] rounded-xl overflow-hidden text-sm">
+                        <div className="flex justify-between p-4 border-b border-gray-800">
+                            <span className="text-gray-400  font-semibold">EQUIPMENT</span>
                             <span className="text-gray-200 text-right">{details.equipment}</span>
                         </div>
-                        <div className="flex justify-between p-4 border-b border-gray-700">
-                            <span className="text-gray-400 uppercase font-semibold">Difficulty</span>
+                        <div className="flex justify-between p-4 border-b border-gray-800">
+                            <span className="text-gray-400  font-semibold">DIFFICULTY</span>
                             <span className="text-gray-200 text-right">{details.difficulty}</span>
                         </div>
-                        <div className="flex justify-between p-4 border-b border-gray-700">
-                            <span className="text-gray-400 uppercase font-semibold">Sets</span>
+                        <div className="flex justify-between p-4 border-b border-gray-800">
+                            <span className="text-gray-400  font-semibold">SETS</span>
                             <span className="text-gray-200 text-right">{details.sets}</span>
                         </div>
-                        <div className="flex justify-between p-4 border-b border-gray-700">
-                            <span className="text-gray-400 uppercase font-semibold">Reps</span>
+                        <div className="flex justify-between p-4 border-b border-gray-800">
+                            <span className="text-gray-400  font-semibold">REPS</span>
                             <span className="text-gray-200 text-right">{details.reps}</span>
                         </div>
-                        <div className="flex justify-between p-4 border-b border-gray-700">
-                            <span className="text-gray-400 uppercase font-semibold">Duration</span>
+                        <div className="flex justify-between p-4 border-b border-gray-800">
+                            <span className="text-gray-400  font-semibold">DURATION</span>
                             <span className="text-gray-200 text-right">{details.duration}</span>
                         </div>
-                        <div className="flex justify-between p-4 border-b border-gray-700">
-                            <span className="text-gray-400 uppercase font-semibold">Calories</span>
+                        <div className="flex justify-between p-4 border-b border-gray-800">
+                            <span className="text-gray-400  font-semibold">CALORIES</span>
                             <span className="text-gray-200 text-right">{details.caloriesBurned}</span>
                         </div>
                         <div className="flex justify-between p-4">
-                            <span className="text-gray-400 uppercase font-semibold">Rating</span>
+                            <span className="text-gray-400  font-semibold">RATING</span>
                             <span className="text-gray-200 text-right">{details.rating}</span>
                         </div>
                     </div>

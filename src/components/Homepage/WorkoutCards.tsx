@@ -12,9 +12,9 @@ const WorkoutCards = async () => {
     const CardsData = await getCards();
     return (
 
-        <div className="max-w-7xl mx-auto">
-            <p className="text-white font-bold text-2xl">THE LIBRARY</p>
-            <p className="text-white">Twelve lifts covering every major muscle group.</p>
+        <div className="max-w-7xl mx-auto px-6 py-8">
+            <p className="text-white font-bold font-oswald text-3xl">THE LIBRARY</p>
+            <p className="text-gray-400 mt-1 pb-5 mb-5">Twelve lifts covering every major muscle group.</p>
 
             <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-y-6">
                 {CardsData.map((cards:IWorkoutCards, ind:number) => {

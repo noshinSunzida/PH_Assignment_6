@@ -22,7 +22,7 @@ const Nav = () => {
                     </div>
             
                 </div>
-                    <hr className="border-gray-900"></hr>
+                    <hr className="border-gray-800"></hr>
             </div>
             
         </div>

@@ -1,12 +1,28 @@
-import React from "react";
+import React, { useContext, useState } from "react";
 import Image from "next/image";
 import Link from "next/link";
 import { IWorkoutCards } from "@/types/WorkoutCardsType";
+import { CardContext } from "@/context/CardProvider";
 
 const MyPlanCardList = ({ card }: { card: IWorkoutCards }) => {
+
+     const { todaysplanCards, setTodaysplanCards, savedCards, setSavedCards } =
+        useContext(CardContext);
+
+    const [isDone, setIsDone] = useState(false);
+
+    const handleRemove = () => {
+        setTodaysplanCards(
+            todaysplanCards.filter((item) => item.id !== card.id)
+        );
+        
+     setSavedCards(
+            savedCards.filter((item) => item.id !== card.id)
+    ); 
+}  
     return (
         <div className="flex items-center justify-between gap-4 rounded-xl bg-[#15171C] p-4">
-            {/* Left side: Workout information */}
+            
             <div className="flex min-w-0 flex-1 items-center gap-3">
                 <Image
                     src={card.image}
@@ -33,7 +49,7 @@ const MyPlanCardList = ({ card }: { card: IWorkoutCards }) => {
                 </div>
             </div>
 
-            {/* Right side: Action buttons */}
+            
             <div className="flex shrink-0 items-center gap-2">
                 <Link
                     href={`/${card.id}`}
@@ -42,18 +58,21 @@ const MyPlanCardList = ({ card }: { card: IWorkoutCards }) => {
                     View Details
                 </Link>
 
-                <button className="rounded-full bg-[#DFFF00] px-3 py-2 text-xs font-semibold text-black hover:bg-lime-300">
-                    ✓ Mark as Done
+                <button  className="rounded-full bg-[#DFFF00] px-3 py-2 text-xs font-semibold text-black hover:bg-lime-300 cursor-pointer" 
+                onClick={() => setIsDone(true)} disabled={isDone}>
+                    
+                    {isDone ? "✓ Completed" : "✓ Mark as Done"}
                 </button>
 
                 <button
-                    aria-label="Remove workout"
+                    aria-label="Remove workout" onClick={handleRemove}
                     className="hidden px-1 text-gray-500 hover:text-white sm:block"
                 >
                     ×
                 </button>
             </div>
         </div>
+    
     );
 };
 

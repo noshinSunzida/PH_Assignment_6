@@ -39,13 +39,13 @@ const MyPlanPage = () => {
     const sortedSavedCards = sortCards(savedCards);
 
     return (
-        <div className="max-w-7xl mx-auto w-full">
-            <p className="text-white font-bold text-2xl">MY PLAN</p>
-            <p className="text-white">Cap of five lifts for today. Finish them, then load more.</p>
+        <div className="max-w-7xl mx-auto w-full gap-8 p-16 ">
+            <p className="text-white font-bold text-2xl ml-3">MY PLAN</p>
+            <p className="text-white mb-7 ml-3">Cap of five lifts for today. Finish them, then load more.</p>
 
-            <div className="max-w-7xl mx-auto flex flex-col  gap-6 px-4">
+            <div className="max-w-7xl mx-auto flex flex-col  gap-6 px-4 ">
             {/* Added w-full here */}
-            <div className="stats stats-vertical lg:stats-horizontal shadow ">
+            <div className="stats stats-vertical lg:stats-horizontal shadow bg-[#15171C] rounded-2xl border border-[#262A33] ">
                 <div className="stat text-amber-50">
                     <div className="stat-title text-amber-50">Exercises</div>
                     <div className="stat-value">{totalExercise}</div>
@@ -68,12 +68,12 @@ const MyPlanPage = () => {
             
             
 <div>
-    {/* Tab buttons */}
+    
     <div className="flex items-center justify-between rounded-xl bg-[#15171C] p-2">
         <div className="flex gap-2">
             <button
                 onClick={() => setActiveTab("Today's Plan")}
-                className={`rounded-lg px-4 py-2 text-sm ${
+                className={`rounded-lg px-4 py-2 text-sm cursor-pointer ${
                     activeTab === "Today's Plan"
                         ? "bg-[#252832] text-white"
                         : "text-gray-400"
@@ -84,7 +84,7 @@ const MyPlanPage = () => {
 
             <button
                 onClick={() => setActiveTab("Saved")}
-                className={`rounded-lg px-4 py-2 text-sm ${
+                className={`rounded-lg px-4 py-2 text-sm cursor-pointer ${
                     activeTab === "Saved"
                         ? "bg-[#252832] text-white"
                         : "text-gray-400"
@@ -113,7 +113,7 @@ const MyPlanPage = () => {
                     <MyPlanCardList key={card.id} card={card} />
                 ))
             ) : (
-                <p className="mt-4 text-white">
+                <p className="mt-4 text-white bg-[#15171C] rounded-2xl border text-center border-[#262A33] py-7">
                     No workouts added yet.
                 </p>
             )
@@ -123,7 +123,7 @@ const MyPlanPage = () => {
                     <MyPlanCardList key={card.id} card={card} />
                 ))
             ) : (
-                <p className="mt-4 text-white">
+                <p className="mt-4 text-white bg-[#15171C] rounded-2xl border border-[#262A33] text-center py-7">
                     No saved workouts added yet.
                 </p>
             )
