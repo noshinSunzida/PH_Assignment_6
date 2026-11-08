@@ -70,41 +70,47 @@ const MyPlanPage = () => {
             
 <div>
     
-    <div className="flex items-center justify-between rounded-xl bg-[#15171C] p-2">
-        <div className="flex gap-2">
-            <button
-                onClick={() => setActiveTab("Today's Plan")}
-                className={`rounded-lg px-4 py-2 text-sm cursor-pointer ${
-                    activeTab === "Today's Plan"
-                        ? "bg-[#252832] text-white"
-                        : "text-gray-400"
-                }`}
-            >
-                Today's Plan
-            </button>
+<div className="flex flex-col sm:flex-row sm:items-center sm:justify-between rounded-xl bg-[#15171C] p-2 gap-3">
 
-            <button
-                onClick={() => setActiveTab("Saved")}
-                className={`rounded-lg px-4 py-2 text-sm cursor-pointer ${
-                    activeTab === "Saved"
-                        ? "bg-[#252832] text-white"
-                        : "text-gray-400"
-                }`}
-            >
-                Save for later
-            </button>
-        </div>
+    <div className="flex gap-2">
+        <button
+            onClick={() => setActiveTab("Today's Plan")}
+            className={`rounded-lg px-4 py-2 text-sm cursor-pointer flex-1 sm:flex-none whitespace-nowrap ${
+                activeTab === "Today's Plan"
+                    ? "bg-[#252832] text-white"
+                    : "text-gray-400"
+            }`}
+        >
+            Today's Plan
+        </button>
 
-        <div className="flex items-center gap-2 px-3">
-            <p className="whitespace-nowrap text-sm  text-white">Sort By</p>
-            <select value={sortBy} onChange={(e)=> setSortBy(e.target.value as "duration"| "rating" | "calories" )}
-              className="select bg-[#252832] text-white select-sm ">
-                <option value="duration">Duration</option>
-                <option value="rating">Rating</option>
-                <option value="calories">Calories</option>
-            </select>
-        </div>
+        <button
+            onClick={() => setActiveTab("Saved")}
+            className={`rounded-lg px-4 py-2 text-sm cursor-pointer flex-1 sm:flex-none whitespace-nowrap ${
+                activeTab === "Saved"
+                    ? "bg-[#252832] text-white"
+                    : "text-gray-400"
+            }`}
+        >
+            Save for later
+        </button>
     </div>
+
+    <div className="flex items-center justify-between sm:justify-end gap-2 px-3">
+        <p className="whitespace-nowrap text-sm text-white">Sort By</p>
+
+        <select
+            value={sortBy}
+            onChange={(e) => setSortBy(e.target.value as "duration" | "rating" | "calories")}
+            className="select bg-[#252832] text-white select-sm"
+        >
+            <option value="duration">Duration</option>
+            <option value="rating">Rating</option>
+            <option value="calories">Calories</option>
+        </select>
+    </div>
+
+</div>
 
     {/* Selected tab content */}
     <div className="mt-4 flex flex-col gap-3">

@@ -13,6 +13,15 @@ const Banner = () => {
                     FitLog is a dark, no-nonsense gym companion: pick a lift, lock it
                     into today's plan, and watch the week's work add up.
                 </p>
+
+                <div className="flex justify-center lg:hidden my-5">
+                    <Image
+                        src={BannerImg}
+                        alt="FitLog banner"
+                        className="w-full h-auto object-contain"
+                        priority
+                    />
+                </div>
                 
                 <div className="flex gap-3 my-5 text-gray-400">
                    
@@ -20,7 +29,9 @@ const Banner = () => {
                 </div>
                 
             </section>
-            <Image src={BannerImg} alt=''></Image>
+            <div className="hidden lg:block">
+                <Image src={BannerImg} alt="FitLog banner" />
+            </div>
             
         </div>
         </div>
