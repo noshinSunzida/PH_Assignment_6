@@ -3,6 +3,8 @@ import Image from "next/image";
 import Link from "next/link";
 import { IWorkoutCards } from "@/types/WorkoutCardsType";
 import { CardContext } from "@/context/CardProvider";
+import { RxCross2 } from "react-icons/rx";
+import { toast } from "react-toastify";
 
 const MyPlanCardList = ({ card }: { card: IWorkoutCards }) => {
 
@@ -19,7 +21,14 @@ const MyPlanCardList = ({ card }: { card: IWorkoutCards }) => {
      setSavedCards(
             savedCards.filter((item) => item.id !== card.id)
     ); 
+
+    toast.success(`${card.name} removed successfully!`);
 }  
+
+    const handleDone = () => {
+        setIsDone(true);
+        toast.success(`${card.name} marked as completed!`);
+    };
     return (
         <div className="flex items-center justify-between gap-4 rounded-xl bg-[#15171C] p-4">
             
@@ -59,17 +68,18 @@ const MyPlanCardList = ({ card }: { card: IWorkoutCards }) => {
                 </Link>
 
                 <button  className="rounded-full bg-[#DFFF00] px-3 py-2 text-xs font-semibold text-black hover:bg-lime-300 cursor-pointer" 
-                onClick={() => setIsDone(true)} disabled={isDone}>
+                onClick={handleDone} disabled={isDone}>
                     
                     {isDone ? "✓ Completed" : "✓ Mark as Done"}
                 </button>
 
                 <button
                     aria-label="Remove workout" onClick={handleRemove}
-                    className="hidden px-1 text-gray-500 hover:text-white sm:block"
-                >
-                    ×
-                </button>
+                    className="hidden px-1 text-gray-500 hover:text-white sm:block" >
+                         <span className="text-lg"><RxCross2 /></span>  </button>
+                
+                   
+               
             </div>
         </div>
     

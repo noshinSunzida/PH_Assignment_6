@@ -2,6 +2,7 @@ import Image from 'next/image';
 import logo from '@/assets/logo.png'
 import NavBarButtons from '../Buttons/NavBarButtons';
 import NavBarTab from '../Buttons/NavBarTab';
+import { GiHamburgerMenu } from "react-icons/gi";
 
 const Nav = () => {
     return (
@@ -22,6 +23,22 @@ const Nav = () => {
                     </div>
             
                 </div>
+
+                <div className="flex lg:hidden justify-between items-center p-4">
+                <span className="text-pink-600"><GiHamburgerMenu /></span>
+                <div className="flex items-center gap-2">
+                <Image src={logo} alt='' width={30} height={20}></Image>
+                <p className="text-white font-bold text-[20px]">FITLOG</p>
+                    </div>
+                    <div>
+                        <NavBarTab/>
+                    </div>
+
+                    <div className="flex gap-3">
+                        <NavBarButtons/>
+                    </div>
+                
+            </div>
                     <hr className="border-gray-800"></hr>
             </div>
             

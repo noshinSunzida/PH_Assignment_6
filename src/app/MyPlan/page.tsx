@@ -4,6 +4,7 @@ import MyPlanCardList from '@/components/shared/MyPlanCardList';
 import { CardContext } from '@/context/CardProvider';
 import { IWorkoutCards } from '@/types/WorkoutCardsType';
 import React, { useContext, useState } from 'react';
+import Link from 'next/link';
 
 const MyPlanPage = () => {
 
@@ -97,7 +98,7 @@ const MyPlanPage = () => {
         <div className="flex items-center gap-2 px-3">
             <p className="whitespace-nowrap text-sm  text-white">Sort By</p>
             <select value={sortBy} onChange={(e)=> setSortBy(e.target.value as "duration"| "rating" | "calories" )}
-              className="select select-sm">
+              className="select bg-[#252832] text-white select-sm ">
                 <option value="duration">Duration</option>
                 <option value="rating">Rating</option>
                 <option value="calories">Calories</option>
@@ -113,9 +114,19 @@ const MyPlanPage = () => {
                     <MyPlanCardList key={card.id} card={card} />
                 ))
             ) : (
-                <p className="mt-4 text-white bg-[#15171C] rounded-2xl border text-center border-[#262A33] py-7">
-                    No workouts added yet.
-                </p>
+                <div className="mt-4 bg-[#15171C] rounded-2xl border border-[#262A33] py-7">
+                    <p className="mt-3 text-white font-bold text-[20px] text-center ">
+                    NOTHING HERE YET
+                    </p>
+                    <p className=" text-gray-400 text-[13px]  text-center">
+                        Browse the library and add a lift to get today moving.
+                    </p>
+                    <div className="flex justify-center my-5">
+                   
+                        <Link href="/" className=" text-[12px] cursor-pointer  text-black bg-lime-300 rounded-[20px] px-6 py-2 font-bold">Go to Workouts</Link>
+                    </div>
+                </div>
+                
             )
         ) : (
             sortedSavedCards.length > 0 ? (
@@ -123,9 +134,20 @@ const MyPlanPage = () => {
                     <MyPlanCardList key={card.id} card={card} />
                 ))
             ) : (
-                <p className="mt-4 text-white bg-[#15171C] rounded-2xl border border-[#262A33] text-center py-7">
-                    No saved workouts added yet.
-                </p>
+                <div className="mt-4 bg-[#15171C] rounded-2xl border border-[#262A33] py-7">
+                    <p className="mt-3 text-white font-bold text-[20px] text-center ">
+                    NOTHING HERE YET
+                    </p>
+                    <p className=" text-gray-400 text-[13px]  text-center">
+                        Browse the library and add a lift to get today moving.
+                    </p>
+                    <div className="flex justify-center my-5">
+                   
+                        <Link href="/" className=" text-[12px] cursor-pointer  text-black bg-lime-300 rounded-[20px] px-6 py-2 font-bold">Go to Workouts</Link>
+                    </div>
+                </div>
+                
+                
             )
         )}
     </div>

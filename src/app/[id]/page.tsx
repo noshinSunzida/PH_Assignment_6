@@ -3,6 +3,7 @@ import React from 'react';
 import Image from 'next/image';
 import TodayPlanButton from '@/components/Buttons/TodayPlanButton';
 import SaveLaterButton from '@/components/Buttons/SaveLaterButton';
+import { notFound } from 'next/navigation';
 
 
 interface IWorkoutDetailsProps {
@@ -22,15 +23,19 @@ const WorkoutDetails = async ({ params }: IWorkoutDetailsProps) => {
     const { id } = await params;
     const details: IWorkoutCards = await getDetails(id);
 
+    if (!details || !details.name) {
+        notFound();
+    }
+
     return (
         <div className="bg-[#0c0c0e] min-h-screen text-white p-8">
             <div className="max-w-6xl mx-auto flex flex-col md:flex-row gap-8 items-start">
                 
                 
-                <div className="flex-1 w-full relative h-150 rounded-3xl overflow-hidden">
+                <div className="flex-1 w-full relative h-180 rounded-3xl overflow-hidden">
                     <Image 
                         src={details.image} 
-                        alt=""
+                        alt={details.name}
                         fill
                         className="object-cover"
                     />
@@ -47,7 +52,7 @@ const WorkoutDetails = async ({ params }: IWorkoutDetailsProps) => {
                         </p>
                     </div>
 
-                    {/* Tags */}
+                  
                     <div className="flex gap-2">
                         {details.muscleGroups?.map((muscle, id) => (
                             <span key={id} className="bg-[#ccff00] text-black text-xs font-semibold px-3 py-1 rounded-full">
@@ -56,7 +61,7 @@ const WorkoutDetails = async ({ params }: IWorkoutDetailsProps) => {
                         ))}
                     </div>
 
-                    {/* Stats Table */}
+                    
                     <div className="bg-[#15171C] rounded-xl overflow-hidden text-sm">
                         <div className="flex justify-between p-4 border-b border-gray-800">
                             <span className="text-gray-400  font-semibold">EQUIPMENT</span>
@@ -88,7 +93,7 @@ const WorkoutDetails = async ({ params }: IWorkoutDetailsProps) => {
                         </div>
                     </div>
 
-                    {/* Instructions */}
+                   
                     <div>
                         <h2 className="text-lg font-bold uppercase tracking-wider mb-4">Instructions</h2>
                         <ol className="list-decimal list-inside text-gray-300 text-sm space-y-3">
@@ -105,7 +110,7 @@ const WorkoutDetails = async ({ params }: IWorkoutDetailsProps) => {
                         </ol>
                     </div>
 
-                    {/* Buttons */}
+                   
                     <div className="flex gap-4 mt-4">
                         <TodayPlanButton card = {details}/>
                         <SaveLaterButton card = {details}/>

@@ -12,7 +12,7 @@ const WorkoutCards = async () => {
     const CardsData = await getCards();
     return (
 
-        <div className="max-w-7xl mx-auto px-6 py-8">
+        <div id="workouts" className="max-w-7xl mx-auto px-6 py-8">
             <p className="text-white font-bold font-oswald text-3xl">THE LIBRARY</p>
             <p className="text-gray-400 mt-1 pb-5 mb-5">Twelve lifts covering every major muscle group.</p>
 

@@ -16,7 +16,7 @@ const Banner = () => {
                 
                 <div className="flex gap-3 my-5 text-gray-400">
                    
-                    <button className=" text-[15px] cursor-pointer  text-black bg-lime-300 rounded-[10px] px-8 py-3 font-bold">BROWSE WORKOUTS</button>
+                    <a href="#workouts" className=" text-[15px] cursor-pointer  text-black bg-lime-300 rounded-[10px] px-8 py-3 font-bold">BROWSE WORKOUTS</a>
                 </div>
                 
             </section>
